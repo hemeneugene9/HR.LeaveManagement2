@@ -19,7 +19,7 @@ namespace HR.LeaveManagement.MVC.Services.Base
             _client = client;
         }
 
-        protected Response<Guid> ConvertApiExceptions<GUID>(ApiException ex)
+        protected Response<Guid> ConvertApiExceptions<Guid>(ApiException ex)
         {
             if(ex.StatusCode == 400)
             {
@@ -39,8 +39,7 @@ namespace HR.LeaveManagement.MVC.Services.Base
         protected void AddBearerToken()
         {
             if (_localStorage.Exists("token"))
-                _client.HttpClient.DefaultRequestHeaders.Authorization = 
-                    new AuthenticationHeaderValue("Bearer", _localStorage.GetStorageValue<string>("token"));
+                _client.HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _localStorage.GetStorageValue<string>("token"));
         }
     }
 }
