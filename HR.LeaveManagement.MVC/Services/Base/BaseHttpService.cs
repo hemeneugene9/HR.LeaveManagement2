@@ -2,8 +2,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Net.Http.Headers;
+using System.Threading.Tasks;
 
 namespace HR.LeaveManagement.MVC.Services.Base
 {
@@ -21,11 +21,11 @@ namespace HR.LeaveManagement.MVC.Services.Base
 
         protected Response<Guid> ConvertApiExceptions<Guid>(ApiException ex)
         {
-            if(ex.StatusCode == 400)
+            if (ex.StatusCode == 400)
             {
                 return new Response<Guid>() { Message = "validation errors have occured.", ValidationErrors = ex.Response, Success = false };
             }
-            else if(ex.StatusCode ==404)
+            else if (ex.StatusCode == 404)
             {
                 return new Response<Guid>() { Message = "The required item could not be found.", Success = false };
             }
@@ -43,3 +43,4 @@ namespace HR.LeaveManagement.MVC.Services.Base
         }
     }
 }
+

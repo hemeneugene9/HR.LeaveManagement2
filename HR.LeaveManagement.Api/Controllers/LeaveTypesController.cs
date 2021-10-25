@@ -56,9 +56,9 @@ namespace HR.LeaveManagement.Api.Controllers
 
         // PUT api/<LeaveTypesController>
         [HttpPut]
-        public async Task<ActionResult> Put([FromBody] LeaveTypeDto leaveTypeDto)
+        public async Task<ActionResult> Put([FromBody] LeaveTypeDto leaveType)
         {
-            var command = new UpdateLeaveTypeCommand { LeaveTypeDto = leaveTypeDto };
+            var command = new UpdateLeaveTypeCommand { LeaveTypeDto = leaveType };
             await _mediator.Send(command);
             return NoContent();
         }

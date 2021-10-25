@@ -29,6 +29,7 @@ namespace HR.LeaveManagement.MVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient<IClient, Client>(cl => cl.BaseAddress = new Uri("https://localhost:44388"));
+
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddSingleton<ILocalStorageService, LocalStorageService>();
