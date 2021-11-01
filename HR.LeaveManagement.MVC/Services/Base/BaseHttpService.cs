@@ -43,4 +43,3 @@ namespace HR.LeaveManagement.MVC.Services.Base
         }
     }
 }
-
