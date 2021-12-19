@@ -21,7 +21,7 @@ namespace HR.LeaveManagement.Identity.Services
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         public AuthService(UserManager<ApplicationUser> userManager,
-            IOptions<JwtSettings> jwtSettings, 
+            IOptions<JwtSettings> jwtSettings,
             SignInManager<ApplicationUser> signInManager
             )
         {
@@ -33,14 +33,14 @@ namespace HR.LeaveManagement.Identity.Services
         {
             var user = await _userManager.FindByEmailAsync(request.Email);
 
-            if(user== null)
+            if (user == null)
             {
                 throw new Exception($"User with {request.Email} not found");
             }
 
             var result = await _signInManager.PasswordSignInAsync(user.UserName, request.Password, false, lockoutOnFailure: false);
 
-            if(!result.Succeeded)
+            if (!result.Succeeded)
             {
                 throw new Exception($"Credentials for'{request.Email} aren't valid'.");
             }
